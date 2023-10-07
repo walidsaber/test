@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>doc testing</title>
+    <title>Math Practice</title>
 </head>
 <body>
-    <h1>me love pizza</h1>
-    <p></p>
+    <h1>Math Practice Exercises</h1>
+    <form action="/check" method="post">
+        {% for exercise in exercises %}
+            <p>{{ exercise.question }} <input type="text" name="answer" required>
+                <input type="hidden" name="exercise_index" value="{{ loop.index0 }}">
+            </p>
+        {% endfor %}
+        <input type="submit" value="Check Answers">
+    </form>
 </body>
 </html>
